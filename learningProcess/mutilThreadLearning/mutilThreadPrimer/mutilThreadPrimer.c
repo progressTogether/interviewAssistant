@@ -19,7 +19,7 @@
  */
 
 /*
-编译命令：gcc mutilThreadPrimer.c -o thread_create -lpthread
+Compile command :gcc mutilThreadPrimer.c -o thread_create -lpthread
 */
 
 /*
@@ -36,6 +36,10 @@
   int main(int argc, char *argv[])
     argc参数的个数
     *argv[]参数的内容
+５、pthread_exit(rval)
+	void pthread_exit(void *retval);
+			#include <pthread.h>
+			 Compile and link with -pthread.
 
 */
 
