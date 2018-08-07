@@ -23,11 +23,7 @@
 *
 *   扩展：http://www.cnblogs.com/qicosmos/p/3145019.html
 */
-#include <iostream>
-#include <stdio.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "../designPatternLib.h"
 using namespace std;
 
 class singleton
