@@ -20,6 +20,8 @@
 *       1. 构造函数私有化
 *       2. 提供一个全局的静态方法
 *       3. 在类中定义一个静态指针，指向本类的变量的静态变量指针
+*
+*   扩展：http://www.cnblogs.com/qicosmos/p/3145019.html
 */
 #include <iostream>
 #include <stdio.h>
