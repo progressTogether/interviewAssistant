@@ -10,7 +10,7 @@
   -o builderFactory
  */
 
-#define UGLY_BUILDER_VETSION_TWO
+#define UGLY_BUILDER_VETSION_THREE
 
 int main(int argc, char const *argv[])
 {
@@ -43,6 +43,39 @@ int main(int argc, char const *argv[])
   harderBuider = NULL;
   myHouse = NULL;
 
+#else
+#endif
+
+#ifdef UGLY_BUILDER_VETSION_THREE
+
+  ExcellentHouse*   myExHouse = NULL;
+  Director*         myExDirector = NULL;
+  Builder*          myBuilder = NULL;
+
+  //建造别墅
+  myBuilder = new VillaBuilder;
+  myExDirector = new Director( myBuilder );
+  myExDirector->construct();
+  myExHouse = myBuilder->getDetailHouse();
+  myExHouse->displayExcellentHouse();
+  delete myBuilder;
+  delete myExDirector;
+  delete myExHouse;
+
+  printf("\n");
+  //建造公寓
+  myBuilder = new FlatBuilder;
+  myExDirector = new Director( myBuilder );
+  myExDirector->construct();
+  myExHouse = myBuilder->getDetailHouse();
+  myExHouse->displayExcellentHouse();
+  delete myBuilder;
+  delete myExDirector;
+  delete myExHouse;
+
+  myBuilder = NULL;
+  myExDirector = NULL;
+  myExHouse = NULL;
 #else
 #endif
 
