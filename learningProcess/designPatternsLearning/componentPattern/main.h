@@ -1,0 +1,1 @@
+#include"componentPattern.h"
