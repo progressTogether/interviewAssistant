@@ -1,5 +1,8 @@
 #include "../designPatternLib.h"
 
+/*
+一个复杂对象，具有自我复制功能，统一一套接口。
+*/
 class Person
 {
 public:
