@@ -1,0 +1,1 @@
+#include"bridgePattern.h"
