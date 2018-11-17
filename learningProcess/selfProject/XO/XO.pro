@@ -13,8 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    singleton.cpp \
+    WriteInfoToFile.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    singleton.h \
+    commonMsg.h \
+    commonType.h \
+    WriteInfoToFile.h
 
 FORMS    += mainwindow.ui

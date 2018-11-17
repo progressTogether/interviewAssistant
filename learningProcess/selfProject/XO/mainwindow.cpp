@@ -6,9 +6,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    m_pSingleton->getInstance();
+
+    m_pWriteInfoToFile = new WriteInfoToFile;
+    m_pWriteInfoToFile->writeInfoToXml();
 }
 
 MainWindow::~MainWindow()
 {
+    m_pSingleton->deleteInstance();
     delete ui;
 }

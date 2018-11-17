@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include"singleton.h"
+#include"WriteInfoToFile.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,7 +19,9 @@ public:
     ~MainWindow();
     
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow*     ui;
+    Singleton*          m_pSingleton;
+    WriteInfoToFile*    m_pWriteInfoToFile;
 };
 
 #endif // MAINWINDOW_H

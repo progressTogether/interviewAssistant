@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--XO框架的配置文件-->
+<?xml-stylesheet type="text/css" href="style.css"?>
+XO框架
+<Introductions Version="1.0">
+    <Introduction>
+        <作者>刘晓辉</作者>
+        <ＱＱ>1406744100</ＱＱ>
+        <座右铭>Talk is cheap,Show me the code.</座右铭>
+        <!--动态加载.so,并完成各个.so插件的通信-->
+        <!--一、可以通过配置文件加载对应的动态库-->
+        <!--二、动态库之间的交互-->
+    </Introduction>
+</Introductions>
+<DynamicLibs>
+    <DynamicLib>
+        <!--动态库的ＩＤ，必须唯一不可重复-->
+        <ID>0</ID>
+        <!--动态库的名称-->
+        <Name>test</Name>
+        <!--动态库的路径-->
+        <Path>testPath</Path>
+    </DynamicLib>
+    <DynamicLib>
+        <ID>1</ID>
+        <Name>test</Name>
+        <Path>testPath</Path>
+    </DynamicLib>
+    <DynamicLib>
+        <ID>2</ID>
+        <Name>test</Name>
+        <Path>testPath</Path>
+    </DynamicLib>
+    <DynamicLib>
+        <ID>3</ID>
+        <Name>test</Name>
+        <Path>testPath</Path>
+    </DynamicLib>
+    <DynamicLib>
+        <ID>4</ID>
+        <Name>test</Name>
+        <Path>testPath</Path>
+    </DynamicLib>
+</DynamicLibs>
