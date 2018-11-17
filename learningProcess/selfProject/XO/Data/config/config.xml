@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--XO框架的配置文件-->
 <?xml-stylesheet type="text/css" href="style.css"?>
-XO框架
 <Introductions Version="1.0">
     <Introduction>
         <作者>刘晓辉</作者>

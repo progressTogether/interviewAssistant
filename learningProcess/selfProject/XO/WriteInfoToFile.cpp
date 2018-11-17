@@ -32,7 +32,6 @@ void WriteInfoToFile::writeInfoToXml()
     writer.writeComment(QString::fromLocal8Bit("XO框架的配置文件"));  // 注释
 
     writer.writeProcessingInstruction("xml-stylesheet type=\"text/css\" href=\"style.css\"");  // 处理指令
-    writer.writeDTD(QString::fromLocal8Bit("XO框架"));
     writer.writeStartElement("Introductions");  // 开始根元素 <Introductions>
     writer.writeAttribute("Version", "1.0");  // 属性
 
