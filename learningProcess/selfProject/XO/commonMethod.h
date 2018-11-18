@@ -4,7 +4,11 @@
 #include<QDataStream>
 #include<QBuffer>
 #include<QByteArray>
-
+#include <string>
+#include<stdio.h>
+#include<iostream>
+#include<sstream>
+#include<string>
 /*************************************************
 Function:       PackProStruct
 Description:    复杂结构打包函数
@@ -28,7 +32,7 @@ std::string PackProStruct( const T& data, const bool bLittleEndian = true )
 
     out_stream << data;
     serial_buffer.close();
-    std:string serial_std_string( serial_array.data(),serial_array.size() );
+    std::string serial_std_string( serial_array.data(),serial_array.size() );
 
     return serial_std_string;
 }
@@ -47,10 +51,10 @@ template<class T>
 void UnPackProStruct( const std::string& msg,T& data, const bool bLittleEndian = true )
 {
     QByteArray  deserial_array( msg.c_str(),msg.size() );
-    QBuffer     deserial_buffer( deserial_array );
+    QBuffer     deserial_buffer( &deserial_array );
     deserial_buffer.open( QIODevice::ReadOnly );
     QDataStream in_stream( &deserial_buffer );
-
+    in_stream.setByteOrder( bLittleEndian ? QDataStream::LittleEndian : QDataStream::BigEndian);
     in_stream >> data;
 
     deserial_buffer.close();

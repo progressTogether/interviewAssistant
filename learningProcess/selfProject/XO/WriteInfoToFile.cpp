@@ -166,6 +166,16 @@ bool WriteInfoToFile::readInfoFromXml()
    return true;
 }
 
+void WriteInfoToFile::testPacket(std::__cxx11::string msg)
+{
+    TestPacket tp;
+    UnPackProStruct( msg,tp);
+    qDebug()<<tp.isOk;
+    qDebug()<<tp.testID;
+}
+
+
+
 
 
 

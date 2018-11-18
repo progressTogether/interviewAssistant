@@ -8,6 +8,7 @@
 
 #include"commonType.h"
 #include"commonMsg.h"
+#include"commonMethod.h"
 class WriteInfoToFile
 {
 public:
@@ -15,6 +16,8 @@ public:
 
     void writeInfoToXml();
     bool readInfoFromXml();
+
+    void testPacket( std::string msg);
 private:
     QMap<int,DynamicLibInfo>      m_dynamicLibInfoMap;
 

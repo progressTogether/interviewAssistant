@@ -3,7 +3,7 @@
 
 #include<QString>
 #include <QDebug>
-
+#include<QDataStream>
 
 struct DynamicLibInfo
 {
@@ -12,6 +12,27 @@ struct DynamicLibInfo
     QString     dynamicLibPath;
 };
 
+struct TestPacket
+{
+    int       testID;
+    QString     isOk;
+
+    friend QDataStream &operator<<(QDataStream &out, const TestPacket &data)
+    {
+        out << data.testID
+            << data.isOk;
+
+        return out;
+    }
+
+    friend QDataStream &operator>>(QDataStream &in, TestPacket &data)
+    {
+        in >> data.testID
+           >> data.isOk;
+
+        return in;
+    }
+};
 
 //注释规范
 
