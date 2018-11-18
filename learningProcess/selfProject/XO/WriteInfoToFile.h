@@ -14,7 +14,7 @@ public:
     WriteInfoToFile();
 
     void writeInfoToXml();
-
+    bool readInfoFromXml();
 private:
     QMap<int,DynamicLibInfo>      m_dynamicLibInfoMap;
 

@@ -3,7 +3,7 @@
 WriteInfoToFile::WriteInfoToFile()
 {
     DynamicLibInfo tmpInfo;
-    for( int i = 0; i < 5;i++ )
+    for( int i = 1; i < 5;i++ )
     {
         tmpInfo.dynamicLibID = i;
         tmpInfo.dynamicLibName = "test";
@@ -84,3 +84,113 @@ void WriteInfoToFile::writeInfoToXml()
 
     file.close();
 }
+
+bool WriteInfoToFile::readInfoFromXml()
+{
+    QString strPath( CONFIG_FILE_PATH );
+    QString strFile( "config.xml");
+    strFile = strPath + strFile;
+    QFile file(strFile);
+    if(!file.open(QFile::ReadOnly | QFile::Text))
+    {
+        qDebug()<<"Open XML file Error";
+        return false;
+    }
+
+   QXmlStreamReader xmlReader(&file);
+   //QXmlStreamAttributes attributes;
+   while ( !xmlReader.atEnd() && !xmlReader.hasError() )
+  {
+       if("DynamicLibs" == xmlReader.name())
+       {
+           while( !xmlReader.atEnd() )
+           {
+               if( xmlReader.tokenType() == QXmlStreamReader::EndElement && xmlReader.name()=="DynamicLibs")
+               {
+                   break;
+               }
+               if("DynamicLib" == xmlReader.name())
+               {
+                   int tmpID = 0;
+                   QString tmpName;
+                   QString tmpPath;
+
+                   while( !xmlReader.atEnd() )
+                   {
+                       if( xmlReader.tokenType() == QXmlStreamReader::EndElement && xmlReader.name()=="DynamicLib")
+                       {
+                           break;
+                       }
+                       if("ID" == xmlReader.name())
+                       {
+                           tmpID = xmlReader.readElementText().toInt();
+                       }
+
+                       if("Name" == xmlReader.name())
+                       {
+                           tmpName = xmlReader.readElementText();
+                       }
+
+                       if("Path" == xmlReader.name())
+                       {
+                           tmpPath = xmlReader.readElementText();
+                       }
+
+                       xmlReader.readNext();
+                   }
+
+                   if( 0 != tmpID
+                       && NULL != tmpName
+                       && NULL != tmpPath )
+                   {
+                       DynamicLibInfo tmpInfo;
+                       tmpInfo.dynamicLibID = tmpID;
+                       tmpInfo.dynamicLibName = tmpName;
+                       tmpInfo.dynamicLibPath = tmpPath;
+                       m_dynamicLibInfoMap.insert( tmpInfo.dynamicLibID,tmpInfo );
+                   }
+               }
+               xmlReader.readNext();
+           }
+       }
+
+       xmlReader.readNext();
+   }
+   QMap<int,DynamicLibInfo>::iterator it = m_dynamicLibInfoMap.begin();
+   for( ; it != m_dynamicLibInfoMap.end(); it++ )
+   {
+       qDebug()<<it.value().dynamicLibID;
+       qDebug()<<it.value().dynamicLibName;
+       qDebug()<<it.value().dynamicLibPath;
+   }
+   return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

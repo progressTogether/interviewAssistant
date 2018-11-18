@@ -21,6 +21,7 @@ HEADERS  += mainwindow.h \
     singleton.h \
     commonMsg.h \
     commonType.h \
-    WriteInfoToFile.h
+    WriteInfoToFile.h \
+    commonMethod.h
 
 FORMS    += mainwindow.ui
