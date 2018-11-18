@@ -1,0 +1,12 @@
+#ifndef COMTABLEW_GLOBAL_H
+#define COMTABLEW_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(COMTABLEW_LIBRARY)
+#  define COMTABLEWSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define COMTABLEWSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // COMTABLEW_GLOBAL_H
